@@ -1,17 +1,27 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
+import React, { StrictMode } from 'react'
+import { registerSW } from 'virtual:pwa-register'
+import { createRoot } from 'react-dom/client'
+import 'tailwindcss/tailwind.css'
+import App from '@/App'
 
-import './index.css'
+const updateSW = registerSW({
+  onNeedRefresh() {
+    // Show a prompt to the user to refresh the app
+    if (confirm('New content available. Reload?')) {
+      updateSW(true)
+    }
+  },
+  onOfflineReady() {
+    console.log('App is ready for offline use')
+  }
+})
 
-import './demos/ipc'
-// If you want use Node.js, the`nodeIntegration` needs to be enabled in the Main process.
-// import './demos/node'
-
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
-
-postMessage({ payload: 'removeLoading' }, '*')
+const container = document.getElementById('root')
+if (container) {
+  const root = createRoot(container)
+  root.render(
+    <StrictMode>
+      <App/>
+    </StrictMode>,
+  )
+}

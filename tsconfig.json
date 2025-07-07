@@ -21,7 +21,18 @@
         "src/*"
       ]
     },
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom",
+      "@testing-library/react",
+      "vite-plugin-pwa/client"
+    ]
   },
   "include": ["src", "electron"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
