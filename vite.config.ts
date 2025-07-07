@@ -2,6 +2,7 @@ import { rmSync } from 'node:fs'
 import path from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
@@ -16,6 +17,7 @@ export default defineConfig(({ command }) => {
     },
     plugins: [
       react(),
+      tailwindcss(),
       VitePWA({
         registerType: 'autoUpdate',
         devOptions: { enabled: true },
@@ -62,5 +64,11 @@ export default defineConfig(({ command }) => {
       })
     ],
     clearScreen: false,
+    test: {
+      globals: true,
+      environment: 'jest-dom',
+      setupFiles: '.vitest/setup',
+      include: ['**/test.{ts,tsx}']
+    }
   }
 })

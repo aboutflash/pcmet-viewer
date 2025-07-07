@@ -1,7 +1,7 @@
 import React, { StrictMode } from 'react'
 import { registerSW } from 'virtual:pwa-register'
 import { createRoot } from 'react-dom/client'
-import 'tailwindcss/tailwind.css'
+import 'tailwindcss'
 import App from '@/App'
 
 const updateSW = registerSW({

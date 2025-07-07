@@ -26,6 +26,8 @@
       "vitest/globals",
       "@testing-library/jest-dom",
       "@testing-library/react",
+      "@tailwindcss/vite",
+      "@tailwindcss/postcss",
       "vite-plugin-pwa/client"
     ]
   },
