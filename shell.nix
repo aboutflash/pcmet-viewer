@@ -21,7 +21,7 @@ pkgs.mkShell {
     fi
 
     echo "Willkommen in der privaten IntelliJ Shell! (Java 21, Node 24)"
-    # idea-ultimate nosplash dontReopenProjects
-    # exit
+    idea-ultimate nosplash dontReopenProjects
+    exit
   '';
 }
